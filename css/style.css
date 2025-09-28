@@ -1,0 +1,333 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #f9f9f9;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #111;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00adb5;
+}
+
+.lang-switch img {
+    width: 24px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.lang-switch img:hover {
+    transform: scale(1.1);
+}
+
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/hero/img1.gif') no-repeat center/cover;
+    color: #fff;
+}
+
+.btn-hero {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    background: #00adb5;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-hero:hover {
+    background: #007a80;
+    transform: scale(1.05);
+}
+
+section {
+    padding: 3rem 2rem;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.about-img img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.about-text {
+    flex: 1;
+}
+
+
+/* LINKS NOS CARDS DE PROJETOS */
+
+.project-grid .card a {
+    text-decoration: none;
+    /* remove sublinhado */
+    color: inherit;
+    /* mantém a cor do texto original */
+}
+
+.project-grid .card a:visited {
+    color: inherit;
+    /* evita mudar para roxo após clique */
+}
+
+.project-grid .card a:active {
+    color: #00adb5;
+    /* cor quando clica (em vez de vermelho padrão) */
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    display: block;
+}
+
+.card-info {
+    padding: 1rem;
+}
+
+.socials a {
+    margin: 0 10px;
+    font-size: 2rem;
+    /* maior para dar destaque */
+    color: #000000;
+    /* cinza neutro no estado normal */
+    filter: grayscale(100%);
+    /* preto e branco inicialmente */
+    transition: all 0.3s ease;
+}
+
+.socials a:hover {
+    color: #00adb5;
+    /* cor em destaque */
+    filter: grayscale(0%);
+    /* volta colorido no hover */
+    transform: scale(1.2);
+    /* cresce levemente */
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #111;
+    color: #fff;
+}
+
+
+/* ----- MOBILE MENU ----- */
+
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    nav {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #111;
+        display: none;
+        flex-direction: column;
+        transition: all 0.3s ease-in-out;
+    }
+    nav.active {
+        display: flex;
+    }
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 1rem 0;
+    }
+    nav ul li {
+        margin: 15px 0;
+        text-align: center;
+    }
+    nav ul li a {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* -----   PROJECT1-------- */
+
+.project-details {
+    padding: 3rem 2rem;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.project-details h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #111;
+}
+
+.project-details p {
+    margin-bottom: 2rem;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 2rem;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.03);
+}
+
+.project-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.project-info li {
+    margin-bottom: 10px;
+}
+
+
+/* ----- LIGHTBOX ----- */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox img {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.lightbox .close:hover {
+    color: #bbb;
+}
+
+.lightbox .prev,
+.lightbox .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.3s;
+    user-select: none;
+}
+
+.lightbox .prev {
+    left: 10px;
+}
+
+.lightbox .next {
+    right: 10px;
+}
+
+.lightbox .prev:hover,
+.lightbox .next:hover {
+    color: #bbb;
+}
