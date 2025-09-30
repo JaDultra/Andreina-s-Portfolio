@@ -331,3 +331,289 @@ footer {
 .lightbox .next:hover {
     color: #bbb;
 }
+
+
+/* --- Efeito de lupa nas imagens --- */
+
+.img-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.img-wrapper img {
+    display: block;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.img-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+.zoom-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    color: #fff;
+    font-size: 2rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.img-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.img-wrapper:hover::before {
+    opacity: 1;
+}
+
+.img-wrapper:hover .zoom-icon {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+/* ----------------- DARK MODE ----------------- */
+
+body.dark-mode {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+body.dark-mode header {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode nav ul li a {
+    color: #f5f5f5;
+}
+
+body.dark-mode .hero {
+    background-color: #1a1a1a;
+    color: #f5f5f5;
+}
+
+body.dark-mode .card {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+    border: 1px solid #333;
+}
+
+body.dark-mode .project-details {
+    background-color: #1a1a1a;
+    color: #f5f5f5;
+}
+
+body.dark-mode footer {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+}
+
+body.dark-mode .gallery img {
+    border: 2px solid #333;
+}
+
+body.dark-mode .socials a {
+    color: #f5f5f5;
+}
+
+
+/* Botão Toggle Dark Mode */
+
+#dark-mode-toggle {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background-color: #f5f5f5;
+    color: #333;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode #dark-mode-toggle {
+    background-color: #333;
+    color: #f5f5f5;
+}
+
+#dark-mode-toggle i {
+    font-size: 1.5rem;
+}
+
+
+/* ---------------------- DARK MODE ---------------------- */
+
+body.dark-mode {
+    background-color: #121212;
+    /* base */
+    color: #f5f5f5;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+/* Header e Nav */
+
+body.dark-mode header,
+body.dark-mode nav {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+}
+
+body.dark-mode nav ul li a {
+    color: #f5f5f5;
+}
+
+
+/* Hero Section */
+
+body.dark-mode .hero {
+    background-color: #1b1b1b;
+    color: #ffffff;
+}
+
+
+/* About Section */
+
+body.dark-mode #about {
+    background-color: #1c1c1c;
+    color: #e0e0e0;
+}
+
+
+/* Projects Grid */
+
+body.dark-mode .project-grid {
+    background-color: #121212;
+    /* mudar*/
+}
+
+body.dark-mode .project-grid .card {
+    background-color: #222222;
+    color: #f5f5f5;
+    border: 1px solid #333333;
+    /* tentar branco*/
+}
+
+
+/* Project Details Page */
+
+body.dark-mode .project-details {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+body.dark-mode .project-info {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .project-details h1 {
+    color: #f5f5f5;
+}
+
+
+/* Gallery Images */
+
+body.dark-mode .gallery img {
+    border: 2px solid #333333;
+}
+
+body.dark-mode .gallery {
+    background-color: #121212;
+}
+
+
+/* Contact Section */
+
+body.dark-mode #contact {
+    background-color: #1a1a1a;
+    color: #f5f5f5;
+}
+
+
+/* Footer */
+
+body.dark-mode footer {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+
+/* Socials */
+
+body.dark-mode .socials a {
+    color: #f5f5f5;
+}
+
+body.dark-mode .socials a:hover {
+    color: #00adb5;
+    /* cor em destaque */
+    filter: grayscale(0%);
+    /* volta colorido no hover */
+    transform: scale(1.2);
+    /* cresce levemente */
+}
+
+
+/* Lightbox */
+
+body.dark-mode .lightbox {
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+body.dark-mode .lightbox img {
+    border: 2px solid #ffffff;
+}
+
+
+/* Buttons */
+
+body.dark-mode button {
+    background-color: #333333;
+    color: #f5f5f5;
+    border: 1px solid #444444;
+}
+
+body.dark-mode button:hover {
+    background-color: #444444;
+    border-color: #555555;
+}
+
+
+/* Links */
+
+body.dark-mode a {
+    color: #ffffff;
+}
+
+
+/* Dark Mode Toggle Button */
+
+body.dark-mode #dark-mode-toggle {
+    background-color: #333333;
+    color: #f5f5f5;
+}
+
+
+/* Transitions suaves */
+
+* {
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
