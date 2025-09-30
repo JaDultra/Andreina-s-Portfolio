@@ -475,8 +475,49 @@ function setLanguage(lang) {
     document.documentElement.lang = lang;
 }
 
-// Ao carregar
+
 document.addEventListener("DOMContentLoaded", () => {
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+
+    if (!darkModeToggle) return; // Sai se o botão não existir
+
+    const body = document.body;
+    const icon = darkModeToggle.querySelector('i');
+
+    // Ativa dark mode se já estiver no localStorage
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        body.classList.add('dark-mode');
+        if (icon) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+    }
+
+    // Evento de clique
+    darkModeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+
+        if (body.classList.contains('dark-mode')) {
+            if (icon) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            if (icon) {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+            localStorage.setItem('darkMode', 'disabled');
+        }
+    });
+});
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    // --------- MENU TOGGLE ---------
     const menuToggle = document.getElementById("menu-toggle");
     const navbar = document.getElementById("navbar");
     if (menuToggle && navbar) {
@@ -485,25 +526,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Idioma salvo
+    // --------- IDIOMA ---------
     let saved = null;
     try { saved = localStorage.getItem('siteLang'); } catch (e) {}
     if (saved && translations[saved]) setLanguage(saved);
 
-    // Bandeiras
     const flags = document.querySelectorAll('.lang-switch img');
     flags.forEach(img => {
         img.addEventListener('click', () => {
             const dataLang = img.getAttribute('data-lang');
-            if (dataLang && translations[dataLang]) {
-                setLanguage(dataLang);
-            }
+            if (dataLang && translations[dataLang]) setLanguage(dataLang);
         });
     });
-});
 
-// LIGHTBOX
-document.addEventListener("DOMContentLoaded", () => {
+    // --------- LIGHTBOX ---------
     const galleryImages = document.querySelectorAll(".gallery img");
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
@@ -519,9 +555,7 @@ document.addEventListener("DOMContentLoaded", () => {
         lightboxImg.src = galleryImages[currentIndex].src;
     }
 
-    function closeLightbox() {
-        lightbox.style.display = "none";
-    }
+    function closeLightbox() { lightbox.style.display = "none"; }
 
     function showPrev() {
         currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
@@ -533,18 +567,12 @@ document.addEventListener("DOMContentLoaded", () => {
         lightboxImg.src = galleryImages[currentIndex].src;
     }
 
-    galleryImages.forEach((img, index) => {
-        img.addEventListener("click", () => openLightbox(index));
-    });
-
+    galleryImages.forEach((img, index) => img.addEventListener("click", () => openLightbox(index)));
     closeBtn.addEventListener("click", closeLightbox);
     prevBtn.addEventListener("click", showPrev);
     nextBtn.addEventListener("click", showNext);
 
-    lightbox.addEventListener("click", (e) => {
-        if (e.target === lightbox) closeLightbox();
-    });
-
+    lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
     document.addEventListener("keydown", (e) => {
         if (lightbox.style.display === "block") {
             if (e.key === "Escape") closeLightbox();
@@ -552,4 +580,6 @@ document.addEventListener("DOMContentLoaded", () => {
             if (e.key === "ArrowRight") showNext();
         }
     });
+
+
 });
