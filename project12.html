@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 1 – Andreina Portfolio</title>
+    <title>Andreina's Portfolio</title>
+    <link rel="icon" href="assets/hero/icon.ico">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -28,14 +29,28 @@
     </header>
 
     <section class="project-details">
-        <h1 id="project-title">Project 1</h1>
-        <p id="project-desc">Este projeto foi desenvolvido com foco em funcionalidade...</p>
+        <h1 id="project-title">Contemporary Residence on Sloped Terrain</h1>
+        <p id="project-desc">Residence on inclined terrain highlighting relief and volumetry. Features defined volumes, contrasting textures, and integration with surroundings using concrete, glass, and neutral tones.</p>
 
         <div class="gallery">
-            <img src="assets/projects/proj12/proj12_1.jpg" alt="Project 12 - Image 1">
-            <img src="assets/projects/proj12/proj12_2.jpg" alt="Project 12 - Image 2">
-            <img src="assets/projects/proj12/proj12_3.jpg" alt="Project 12 - Image 3">
+
+            <div class="img-wrapper">
+                <img src="assets/projects/proj12/proj12_1.jpg" alt="Project 12 - Image 1">
+                <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+            </div>
+
+            <div class="img-wrapper">
+                <img src="assets/projects/proj12/proj12_2.jpg" alt="Project 12 - Image 2">
+                <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+            </div>
+
+            <div class="img-wrapper">
+                <img src="assets/projects/proj12/proj12_3.jpg" alt="Project 12 - Image 3">
+                <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+            </div>
+
         </div>
+
 
         <div id="lightbox" class="lightbox">
             <span class="close">&times;</span>
@@ -57,6 +72,9 @@
     <footer>
         <p>© 2025 Andreina – All Rights Reserved</p>
     </footer>
+    <div id="dark-mode-toggle">
+        <i class="fas fa-moon"></i>
+    </div>
 </body>
 
 </html>
